@@ -1,0 +1,47 @@
+[2023-05-07T16:24:11.540-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bigdata_tp.TopCTR manual__2023-05-07T19:24:00.798847+00:00 [queued]>
+[2023-05-07T16:24:11.550-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bigdata_tp.TopCTR manual__2023-05-07T19:24:00.798847+00:00 [queued]>
+[2023-05-07T16:24:11.550-0300] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T16:24:11.550-0300] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-07T16:24:11.551-0300] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T16:24:11.567-0300] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): TopCTR> on 2023-05-07 19:24:00.798847+00:00
+[2023-05-07T16:24:11.590-0300] {standard_task_runner.py:55} INFO - Started process 3023 to run task
+[2023-05-07T16:24:11.602-0300] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'bigdata_tp', 'TopCTR', 'manual__2023-05-07T19:24:00.798847+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpajrsobls']
+[2023-05-07T16:24:11.606-0300] {standard_task_runner.py:83} INFO - Job 84: Subtask TopCTR
+[2023-05-07T16:24:11.685-0300] {task_command.py:389} INFO - Running <TaskInstance: bigdata_tp.TopCTR manual__2023-05-07T19:24:00.798847+00:00 [running]> on host DESKTOP-02TA80M.localdomain
+[2023-05-07T16:24:11.756-0300] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=bigdata_tp
+AIRFLOW_CTX_TASK_ID=TopCTR
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T19:24:00.798847+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-07T19:24:00.798847+00:00
+[2023-05-07T16:24:11.892-0300] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3652, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'type_conversion'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/alanmatys/airflow/dags/dag.py", line 53, in TopCTR
+    grouped['conversion_rate'] = grouped['type_conversion'] / grouped['type_impression']
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3654, in get_loc
+    raise KeyError(key) from err
+KeyError: 'type_conversion'
+[2023-05-07T16:24:11.911-0300] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=bigdata_tp, task_id=TopCTR, execution_date=20230507T192400, start_date=20230507T192411, end_date=20230507T192411
+[2023-05-07T16:24:11.927-0300] {standard_task_runner.py:100} ERROR - Failed to execute job 84 for task TopCTR ('type_conversion'; 3023)
+[2023-05-07T16:24:11.932-0300] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-05-07T16:24:11.952-0300] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

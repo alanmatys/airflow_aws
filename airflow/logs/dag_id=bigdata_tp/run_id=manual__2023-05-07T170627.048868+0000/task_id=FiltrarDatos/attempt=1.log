@@ -1,0 +1,43 @@
+[2023-05-07T14:08:47.336-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T17:06:27.048868+00:00 [queued]>
+[2023-05-07T14:08:47.344-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T17:06:27.048868+00:00 [queued]>
+[2023-05-07T14:08:47.345-0300] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T14:08:47.345-0300] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-07T14:08:47.345-0300] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T14:08:47.359-0300] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): FiltrarDatos> on 2023-05-07 17:06:27.048868+00:00
+[2023-05-07T14:08:47.416-0300] {standard_task_runner.py:55} INFO - Started process 482 to run task
+[2023-05-07T14:08:47.427-0300] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'bigdata_tp', 'FiltrarDatos', 'manual__2023-05-07T17:06:27.048868+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpip1osbfd']
+[2023-05-07T14:08:47.431-0300] {standard_task_runner.py:83} INFO - Job 47: Subtask FiltrarDatos
+[2023-05-07T14:08:47.505-0300] {task_command.py:389} INFO - Running <TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T17:06:27.048868+00:00 [running]> on host DESKTOP-02TA80M.localdomain
+[2023-05-07T14:08:47.573-0300] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=bigdata_tp
+AIRFLOW_CTX_TASK_ID=FiltrarDatos
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T17:06:27.048868+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-07T17:06:27.048868+00:00
+[2023-05-07T14:08:47.574-0300] {dag.py:21} INFO - Levantando ids activos...
+[2023-05-07T14:08:47.578-0300] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/alanmatys/airflow/dags/dag.py", line 22, in FiltrarDatos
+    ads_ids = pd.read_csv(os.path.join('..','data','raw','advertiser_ids.csv'), low_memory=False)
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/alanmatys/airflow_env/lib/python3.10/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '../data/raw/advertiser_ids.csv'
+[2023-05-07T14:08:47.589-0300] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=bigdata_tp, task_id=FiltrarDatos, execution_date=20230507T170627, start_date=20230507T170847, end_date=20230507T170847
+[2023-05-07T14:08:47.602-0300] {standard_task_runner.py:100} ERROR - Failed to execute job 47 for task FiltrarDatos ([Errno 2] No such file or directory: '../data/raw/advertiser_ids.csv'; 482)
+[2023-05-07T14:08:47.636-0300] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-05-07T14:08:47.655-0300] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check

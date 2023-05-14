@@ -1,0 +1,25 @@
+[2023-05-07T16:55:26.140-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T19:55:20.793200+00:00 [queued]>
+[2023-05-07T16:55:26.151-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T19:55:20.793200+00:00 [queued]>
+[2023-05-07T16:55:26.152-0300] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T16:55:26.152-0300] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-07T16:55:26.152-0300] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T16:55:26.183-0300] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): FiltrarDatos> on 2023-05-07 19:55:20.793200+00:00
+[2023-05-07T16:55:26.211-0300] {standard_task_runner.py:55} INFO - Started process 3470 to run task
+[2023-05-07T16:55:26.228-0300] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'bigdata_tp', 'FiltrarDatos', 'manual__2023-05-07T19:55:20.793200+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp7cx3yk05']
+[2023-05-07T16:55:26.233-0300] {standard_task_runner.py:83} INFO - Job 93: Subtask FiltrarDatos
+[2023-05-07T16:55:26.330-0300] {task_command.py:389} INFO - Running <TaskInstance: bigdata_tp.FiltrarDatos manual__2023-05-07T19:55:20.793200+00:00 [running]> on host DESKTOP-02TA80M.localdomain
+[2023-05-07T16:55:26.401-0300] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=bigdata_tp
+AIRFLOW_CTX_TASK_ID=FiltrarDatos
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T19:55:20.793200+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-07T19:55:20.793200+00:00
+[2023-05-07T16:55:26.402-0300] {dag.py:21} INFO - Levantando ids activos...
+[2023-05-07T16:55:26.650-0300] {dag.py:34} INFO - Devolviendo DFs....
+[2023-05-07T16:55:26.913-0300] {python.py:177} INFO - Done. Returned value was: None
+[2023-05-07T16:55:26.918-0300] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=bigdata_tp, task_id=FiltrarDatos, execution_date=20230507T195520, start_date=20230507T195526, end_date=20230507T195526
+[2023-05-07T16:55:26.958-0300] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-07T16:55:26.988-0300] {taskinstance.py:2596} INFO - 2 downstream tasks scheduled from follow-on schedule check

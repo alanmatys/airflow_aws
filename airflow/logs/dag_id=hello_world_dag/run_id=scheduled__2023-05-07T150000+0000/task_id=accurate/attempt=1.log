@@ -1,0 +1,28 @@
+[2023-05-07T13:57:04.646-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: hello_world_dag.accurate scheduled__2023-05-07T15:00:00+00:00 [queued]>
+[2023-05-07T13:57:04.660-0300] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: hello_world_dag.accurate scheduled__2023-05-07T15:00:00+00:00 [queued]>
+[2023-05-07T13:57:04.660-0300] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T13:57:04.661-0300] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-05-07T13:57:04.662-0300] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-07T13:57:04.679-0300] {taskinstance.py:1309} INFO - Executing <Task(BashOperator): accurate> on 2023-05-07 15:00:00+00:00
+[2023-05-07T13:57:04.699-0300] {standard_task_runner.py:55} INFO - Started process 348 to run task
+[2023-05-07T13:57:04.710-0300] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'hello_world_dag', 'accurate', 'scheduled__2023-05-07T15:00:00+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/dag_falopa.py', '--cfg-path', '/tmp/tmpgt_fsqvi']
+[2023-05-07T13:57:04.715-0300] {standard_task_runner.py:83} INFO - Job 35: Subtask accurate
+[2023-05-07T13:57:04.809-0300] {task_command.py:389} INFO - Running <TaskInstance: hello_world_dag.accurate scheduled__2023-05-07T15:00:00+00:00 [running]> on host DESKTOP-02TA80M.localdomain
+[2023-05-07T13:57:04.894-0300] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=hello_world_dag
+AIRFLOW_CTX_TASK_ID=accurate
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-07T15:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-07T15:00:00+00:00
+[2023-05-07T13:57:04.897-0300] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-07T13:57:04.898-0300] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "echo 'accurate'"]
+[2023-05-07T13:57:04.983-0300] {subprocess.py:86} INFO - Output:
+[2023-05-07T13:57:05.000-0300] {subprocess.py:93} INFO - accurate
+[2023-05-07T13:57:05.000-0300] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-07T13:57:05.031-0300] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=hello_world_dag, task_id=accurate, execution_date=20230507T150000, start_date=20230507T165704, end_date=20230507T165705
+[2023-05-07T13:57:05.085-0300] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-05-07T13:57:05.132-0300] {taskinstance.py:2596} INFO - 0 downstream tasks scheduled from follow-on schedule check
